@@ -5,5 +5,5 @@ import org.springframework.stereotype.Controller;
 @Controller
 public class PatientController {
     //testing
-    // aahn durga devi 
+    // this is just to check the vs code 
 }
