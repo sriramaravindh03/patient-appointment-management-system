@@ -9,6 +9,7 @@ public class Patient {
 	private int patientID;
 	private String patientName;
 	private long phno;
+	public Patient() {}
 	public Patient(String patientName, long phno) {
 		super();
 		this.patientName = patientName;

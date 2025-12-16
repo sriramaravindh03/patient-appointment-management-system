@@ -1,9 +1,15 @@
 package com.genc.pams.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
 
 @Controller
 public class PatientController {
-    //testing
-    // aahn durga devi 
+    @GetMapping("/test")
+    public String show() {
+        return "abc";
+    }
+    
 }
