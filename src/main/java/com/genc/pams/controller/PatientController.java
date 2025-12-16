@@ -14,5 +14,6 @@ public class PatientController {
         model.addAttribute("patientName",name);
         return "abc";
     }
+    // Hello world
 
 }
