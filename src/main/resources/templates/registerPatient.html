@@ -4,7 +4,7 @@
         <title>Registration Page</title>
     </head>
     <body>
-        <form action="/home" th:object="${patient}" method="post">
+        <form th:action="@{/home}" th:object="${patient}" method="post">
             Name: <input type="text" th:field="*{patientName}" /><br/>
             Email: <input type="email" th:field="*{email}" /><br/>
             Phone: <input type="tel" th:field="*{phno}" /><br/>

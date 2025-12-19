@@ -1,9 +1,15 @@
 package com.genc.pams.model;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import lombok.Data;
 
 @Entity
+@Table(name = "patient")
+@Data
 public class Patient {
 	@Id
 	private int patientID;
@@ -20,9 +26,6 @@ public class Patient {
 	}
 	public int getPatientID() {
 		return patientID;
-	}
-	public void setPatientID(int patientID) {
-		this.patientID = patientID;
 	}
 	public String getPatientName() {
 		return patientName;

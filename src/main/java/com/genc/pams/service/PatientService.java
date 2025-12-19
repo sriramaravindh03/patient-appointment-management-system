@@ -11,7 +11,7 @@ public class PatientService {
     @Autowired
     private PatientRepository patientRepository;
 
-    public void savePatient(Patient patient) {
-        patientRepository.save(patient);
+    public Patient savePatient(Patient patient) {
+        return patientRepository.save(patient);
     }
 }
