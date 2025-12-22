@@ -68,7 +68,8 @@ public class PatientController {
             existing.setPhno(patient.getPhno());
             existing.setAddress(patient.getAddress());
             existing.setDob(patient.getDob());
-            existing.setPassword(patient.getPassword());
+            if(patient.getPassword() != null && !patient.getPassword().isEmpty())
+                existing.setPassword(patient.getPassword());
         }
         Patient updated = patientService.savePatient(existing);
         model.addAttribute("patient", updated);
