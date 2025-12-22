@@ -14,4 +14,12 @@ public class PatientService {
     public Patient savePatient(Patient patient) {
         return patientRepository.save(patient);
     }
+
+    public Patient getPatientById(Integer id) {
+        return patientRepository.findById(id).orElse(null);
+    }
+
+    public Patient logPatient(Long phno, String password) {
+        return patientRepository.findByPhnoAndPassword(phno, password);
+    }
 }

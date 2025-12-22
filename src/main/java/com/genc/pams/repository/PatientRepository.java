@@ -7,5 +7,6 @@ import com.genc.pams.model.Patient;
 
 @Repository
 public interface PatientRepository extends JpaRepository<Patient, Integer> {
+    Patient findByPhnoAndPassword(Long phno, String password);
 
 }

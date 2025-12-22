@@ -1,9 +1,55 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-    <head>
-        <title>Home</title>
-    </head>
-    <body>
-        <h1 th:text = "${out}"></h1>
-    </body>
+<head>
+    <title>Patient Home</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f6f8;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #007bff;
+            color: white;
+            padding: 15px 20px;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+        .btn-create {
+            background-color: #28a745;
+            color: white;
+            padding: 10px 15px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        .btn-create:hover {
+            background-color: #218838;
+        }
+        main {
+            padding: 30px;
+            text-align: center;
+        }
+        main h2 {
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>PAMS</h1>
+        <a th:if="${patient != null}" th:href="@{/profile(id=${patient.patientID})}" class="btn-create">Update Profile</a>
+        <a th:if="${patient == null}" th:href="@{/log}" class="btn-create">Login</a>
+    </header>
+    <main>
+        <h2 th:text="${out}">Welcome to your dashboard!</h2>
+        <p>Manage your appointments here</p>
+    </main>
+</body>
 </html>

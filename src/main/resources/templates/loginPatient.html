@@ -1,0 +1,13 @@
+<html>
+    <body>
+        <form th:action="@{/home}" method="post">
+            <h2>Login Form</h2>
+            <label for="phno">Phone Number:</label><br>
+            <input type="text" id="phno" name="phno" required><br>
+            <label for="password">Password:</label><br>
+            <input type="password" id="password" name="password" required><br><br>
+            <input type="submit" value="Login" id="login">
+            <a th:href="@{/register}">Register</a>
+        </form>
+    </body>
+</html>
