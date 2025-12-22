@@ -1,18 +1,49 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-    <head>
-        <title>Registration Page</title>
-    </head>
-    <body>
+<head>
+    <title>Patient Registration</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+</head>
+<body>
+<header>
+    <h1>PAMS</h1>
+    <div class="header-actions"><a th:href="@{/log}">Login</a></div>
+</header>
+<div class="container">
+    <div class="card form-wrapper">
+        <h2 class="form-title">Create a Patient Account</h2>
         <form th:action="@{/log}" th:object="${patient}" method="post">
-            Name: <input type="text" th:field="*{patientName}" /><br/>
-            Email: <input type="email" th:field="*{email}" /><br/>
-            Phone: <input type="tel" th:field="*{phno}" /><br/>
-            Address: <input type="text" th:field="*{address}" /><br/>
-            DoB: <input type="text" th:field="*{dob}" /><br/>
-            Password: <input type="password" th:field="*{password}" required><br><br>
-            <button type="submit">Submit</button> 
-            <a th:href="@{/log}">Login</a>
+            <div class="form-field">
+                <label>Name</label>
+                <input type="text" th:field="*{patientName}" placeholder="Full name" required/>
+            </div>
+            <div class="form-field">
+                <label>Email</label>
+                <input type="email" th:field="*{email}" placeholder="email@example.com" required/>
+            </div>
+            <div class="form-field">
+                <label>Phone</label>
+                <input type="tel" th:field="*{phno}" placeholder="Phone number" required/>
+            </div>
+            <div class="form-field">
+                <label>Address</label>
+                <input type="text" th:field="*{address}" placeholder="Address"/>
+            </div>
+            <div class="form-field">
+                <label>Date of Birth</label>
+                <input type="text" th:field="*{dob}" placeholder="DD/MM/YYYY"/>
+            </div>
+            <div class="form-field">
+                <label>Password</label>
+                <input type="password" th:field="*{password}" placeholder="Choose a password" required/>
+            </div>
+            <div class="form-actions">
+                <button type="submit" class="btn">Submit</button>
+                <a th:href="@{/log}" class="btn secondary">Cancel</a>
+            </div>
         </form>
-    </body>
+        <p class="footer-note">Already have an account? <a th:href="@{/log}" class="small-link">Login here</a></p>
+    </div>
+</div>
+</body>
 </html>

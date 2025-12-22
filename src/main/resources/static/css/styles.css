@@ -1,0 +1,44 @@
+/* Shared styles for PAMS */
+:root{
+  --primary:#007bff;
+  --primary-dark:#0069d9;
+  --muted:#6c757d;
+  --bg:#f4f6f8;
+  --card-bg:#ffffff;
+  --success:#28a745;
+}
+html,body{height:100%;}
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  margin:0;
+  background:var(--bg);
+  color:#333;
+}
+header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  background:var(--primary);
+  color:#fff;
+  padding:14px 22px;
+}
+header h1{margin:0;font-size:22px}
+.header-actions a{background:var(--success);color:#fff;padding:8px 12px;border-radius:6px;text-decoration:none;font-weight:600}
+.container{max-width:900px;margin:40px auto;padding:0 20px}
+.card{background:var(--card-bg);padding:22px;border-radius:10px;box-shadow:0 6px 18px rgba(22,28,37,0.06);}
+.form-wrapper{max-width:420px;margin:30px auto}
+.form-title{margin:0 0 10px 0;font-size:20px;color:var(--primary)}
+.form-field{margin-bottom:12px}
+label{display:block;font-weight:600;margin-bottom:6px}
+input[type="text"], input[type="email"], input[type="password"], input[type="tel"]{
+  width:100%;padding:10px;border:1px solid #d1d5db;border-radius:6px;box-sizing:border-box;font-size:14px
+}
+.btn{display:inline-block;background:var(--primary);color:#fff;padding:10px 16px;border-radius:6px;border:none;text-decoration:none;font-weight:600;cursor:pointer}
+.btn.secondary{background:var(--muted)}
+.form-actions{margin-top:14px;display:flex;gap:10px;align-items:center}
+.small-link{color:var(--primary);text-decoration:none;font-weight:600}
+.footer-note{margin-top:12px;color:#6b7280;font-size:13px;text-align:center}
+@media (max-width:520px){
+  .container{margin:20px}
+  .form-wrapper{margin:20px auto}
+}

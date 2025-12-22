@@ -1,13 +1,33 @@
-<html>
-    <body>
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Patient Login</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+</head>
+<body>
+<header>
+    <h1>PAMS</h1>
+    <div class="header-actions"><a th:href="@{/register}">Register</a></div>
+</header>
+<div class="container">
+    <div class="card form-wrapper">
+        <h2 class="form-title">Login to your account</h2>
         <form th:action="@{/home}" method="post">
-            <h2>Login Form</h2>
-            <label for="phno">Phone Number:</label><br>
-            <input type="text" id="phno" name="phno" required><br>
-            <label for="password">Password:</label><br>
-            <input type="password" id="password" name="password" required><br><br>
-            <input type="submit" value="Login" id="login">
-            <a th:href="@{/register}">Register</a>
+            <div class="form-field">
+                <label for="phno">Phone Number</label>
+                <input type="tel" id="phno" name="phno" required placeholder="Enter phone number"/>
+            </div>
+            <div class="form-field">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required placeholder="Enter password"/>
+            </div>
+            <div class="form-actions">
+                <button type="submit" class="btn">Login</button>
+                <a th:href="@{/register}" class="btn secondary" style="text-decoration:none;display:inline-block;">Register</a>
+            </div>
         </form>
-    </body>
+        <p class="footer-note">Don't have an account? <a th:href="@{/register}" class="small-link">Create one</a></p>
+    </div>
+</div>
+</body>
 </html>
