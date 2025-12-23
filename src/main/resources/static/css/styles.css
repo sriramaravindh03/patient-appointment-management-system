@@ -35,6 +35,11 @@ input[type="text"], input[type="email"], input[type="password"], input[type="tel
 }
 .btn{display:inline-block;background:var(--primary);color:#fff;padding:10px 16px;border-radius:6px;border:none;text-decoration:none;font-weight:600;cursor:pointer}
 .btn.secondary{background:var(--muted)}
+.btn.small{padding:11px 18px;font-size:14px;min-width:110px}
+.form-actions.center{justify-content:center}
+.btn.large{padding:11px 18px;min-width:110px}
+.empty-state{max-width:680px;margin:22px auto;padding:18px;border-radius:10px;background:var(--card-bg);box-shadow:0 6px 18px rgba(22,28,37,0.04);text-align:center;color:#6b7280}
+.empty-state p{margin:0;font-size:15px}
 .form-actions{margin-top:14px;display:flex;gap:10px;align-items:center}
 .small-link{color:var(--primary);text-decoration:none;font-weight:600}
 .footer-note{margin-top:12px;color:#6b7280;font-size:13px;text-align:center}

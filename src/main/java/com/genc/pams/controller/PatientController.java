@@ -20,8 +20,7 @@ public class PatientController {
     @GetMapping("/")
     public String start() {
         return "loginPatient";
-    }
-    
+    }   
 
     @GetMapping("/register")
     public String showReg(Model model) {
@@ -33,8 +32,8 @@ public class PatientController {
     public String showLog() {
         return "loginPatient";
     }
-    
-    
+
+
     @PostMapping("/log")
     public String registerPatient(@ModelAttribute Patient patient, Model model) {
         patientService.savePatient(patient);
@@ -43,31 +42,17 @@ public class PatientController {
 
     @PostMapping("/home")
     public String loginPatient(@ModelAttribute Patient patient, Model model) {
-        Patient byPhone = patientService.getPatientByPhno(patient.getPhno());
-        if (byPhone == null) {
-            patient.setPassword(null);
-            model.addAttribute("patient", patient);
-            model.addAttribute("error", "Wrong phone number or password");
-            return "loginPatient";
-        }
-
-        String provided = patient.getPassword() == null ? "" : patient.getPassword();
-        String actual = byPhone.getPassword() == null ? "" : byPhone.getPassword();
-
-        if (!actual.equals(provided)) {
-            // wrong password (case-sensitive check)
-            patient.setPassword(null);
-            model.addAttribute("patient", patient);
-            model.addAttribute("error", "Wrong phone number or password");
-            return "loginPatient";
-        }
-
-        // success
-        String name = byPhone.getPatientName();
+        Patient loggedPatient = patientService.getPatientByPhno(patient.getPhno());
+        String name = loggedPatient.getPatientName();
         String out = "Welcome to your dashboard, "+name+"\n";
         model.addAttribute("out", out);
-        model.addAttribute("patient", byPhone);
-        return "patientHome";
+        if (loggedPatient != null) {
+            model.addAttribute("patient", loggedPatient);
+            return "patientHome";
+        } else {
+            model.addAttribute("error", "Invalid credentials");
+            return "loginPatient";
+        }
     }
     
     @GetMapping("/profile")

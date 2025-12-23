@@ -6,6 +6,6 @@ import com.genc.pams.model.Patient;
 
 @Repository
 public interface PatientRepository extends JpaRepository<Patient, Integer> {
-    Patient findByPhno(Long phno);
+    Patient findByPhno(String phno);
 
 }

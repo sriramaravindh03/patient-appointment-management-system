@@ -45,13 +45,13 @@
                 <div class="hint">Password must be at least 8 characters and include <strong>1 uppercase</strong>, <strong>1 number</strong>, and <strong>1 special character</strong>.</div>
             </div>
             <div class="form-actions">
-                <button type="submit" class="btn">Submit</button>
-                <a th:href="@{/log}" class="btn secondary">Cancel</a>
+                <button type="submit" class="btn small">Submit</button>
+                <a th:href="@{/log}" class="btn secondary large">Cancel</a>
             </div>
         </form>
+        <script src="/js/validation.js"></script>
         <p class="footer-note">Already have an account? <a th:href="@{/log}" class="small-link">Login here</a></p>
     </div>
 </div>
-<script src="/js/validation.js"></script>
 </body>
 </html>

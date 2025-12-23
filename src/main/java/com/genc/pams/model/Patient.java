@@ -12,7 +12,7 @@ public class Patient {
 	@Id
 	private int patientID;
 	private String patientName;
-	private long phno;
+	private String phno;
 	private String email;
 	private String address;
 	private String dob;

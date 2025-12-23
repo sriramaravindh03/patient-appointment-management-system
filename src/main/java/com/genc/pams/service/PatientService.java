@@ -19,7 +19,7 @@ public class PatientService {
         return patientRepository.findById(id).orElse(null);
     }
 
-    public Patient getPatientByPhno(Long phno) {
+    public Patient getPatientByPhno(String phno) {
         return patientRepository.findByPhno(phno);
     }
 }
