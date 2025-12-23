@@ -19,7 +19,7 @@ public class PatientService {
         return patientRepository.findById(id).orElse(null);
     }
 
-    public Patient logPatient(Long phno, String password) {
-        return patientRepository.findByPhnoAndPassword(phno, password);
+    public Patient getPatientByPhno(Long phno) {
+        return patientRepository.findByPhno(phno);
     }
 }

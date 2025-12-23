@@ -15,30 +15,38 @@
 <body>
 <div class="container">
     <h2>Update Your Profile</h2>
-    <form th:action="@{/profile}" th:object="${patient}" method="post">
+    <form id="profileForm" th:action="@{/profile}" th:object="${patient}" method="post" novalidate>
         <input type="hidden" th:field="*{patientID}" />
 
-        <label>Name</label>
-        <input type="text" th:field="*{patientName}" placeholder="Full name" required />
+        <label for="patientName">Name</label>
+        <input id="patientName" name="patientName" type="text" th:field="*{patientName}" placeholder="Full name" required />
+        <div class="error" id="patientName-error" aria-live="polite"></div>
 
-        <label>Email</label>
-        <input type="email" th:field="*{email}" placeholder="email@example.com" required />
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" th:field="*{email}" placeholder="email@example.com" required />
+        <div class="error" id="email-error" aria-live="polite"></div>
 
-        <label>Phone</label>
-        <input type="tel" th:field="*{phno}" placeholder="Phone number" required />
+        <label for="phno">Phone</label>
+        <input id="phno" name="phno" type="tel" th:field="*{phno}" placeholder="Phone number" required />
+        <div class="error" id="phno-error" aria-live="polite"></div>
 
-        <label>Address</label>
-        <input type="text" th:field="*{address}" placeholder="Address" />
+        <label for="address">Address</label>
+        <input id="address" name="address" type="text" th:field="*{address}" placeholder="Address" />
+        <div class="error" id="address-error" aria-live="polite"></div>
 
-        <label>Date of Birth</label>
-        <input type="text" th:field="*{dob}" placeholder="DD/MM/YYYY" />
+        <label for="dob">Date of Birth</label>
+        <input id="dob" name="dob" type="text" th:field="*{dob}" placeholder="DD/MM/YYYY" />
+        <div class="error" id="dob-error" aria-live="polite"></div>
 
-        <label>Password</label>
-        <input type="password" th:field="*{password}" placeholder="Leave blank to keep unchanged" />
+        <label for="password">Password</label>
+        <input id="password" name="password" type="password" th:field="*{password}" placeholder="Leave blank to keep unchanged" />
+        <div class="error" id="password-error" aria-live="polite"></div>
+        <div class="hint">Leave blank to keep current password. If changing, new password must meet complexity requirements.</div>
 
         <button type="submit" class="btn">Update</button>
         <a th:href="@{/log}" class="btn secondary" style="text-decoration:none; display:inline-block; margin-left:10px;">Cancel</a>
     </form>
+    <script src="/js/validation.js"></script>
 </div>
 </body>
 </html>

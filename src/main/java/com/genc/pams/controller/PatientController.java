@@ -5,12 +5,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import com.genc.pams.model.Patient;
-import com.genc.pams.service.PatientService;
-
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-
+import com.genc.pams.model.Patient;
+import com.genc.pams.service.PatientService;
 
 @Controller
 public class PatientController {
@@ -43,17 +41,22 @@ public class PatientController {
 
     @PostMapping("/home")
     public String loginPatient(@ModelAttribute Patient patient, Model model) {
-        Patient loggedPatient = patientService.logPatient(patient.getPhno(), patient.getPassword());
-        String name = loggedPatient.getPatientName();
-        String out = "Welcome to your dashboard, "+name+"\n";
-        model.addAttribute("out", out);
-        if (loggedPatient != null) {
-            model.addAttribute("patient", loggedPatient);
-            return "patientHome";
-        } else {
-            model.addAttribute("error", "Invalid credentials");
+        Patient byPhone = patientService.getPatientByPhno(patient.getPhno());
+        String provided = patient.getPassword() == null ? "" : patient.getPassword();
+        String actual = byPhone.getPassword() == null ? "" : byPhone.getPassword();
+
+        if (!actual.equals(provided) || byPhone == null) {
+            patient.setPassword(null);
+            model.addAttribute("patient", patient);
+            model.addAttribute("error", "Wrong phone number or password");
             return "loginPatient";
         }
+
+        String name = byPhone.getPatientName();
+        String out = "Welcome to your dashboard, "+name+"\n";
+        model.addAttribute("out", out);
+        model.addAttribute("patient", byPhone);
+        return "patientHome";
     }
     
     @GetMapping("/profile")
@@ -83,5 +86,4 @@ public class PatientController {
         model.addAttribute("out", out);
         return "patientHome";
     }
-
 }
