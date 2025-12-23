@@ -46,7 +46,7 @@ public class PatientController {
         if (byPhone == null) {
             patient.setPassword(null);
             model.addAttribute("patient", patient);
-            model.addAttribute("error", "Wrong phone number or password");
+            model.addAttribute("error", "Wrong phone number");
             return "loginPatient";
         }
 
@@ -57,7 +57,7 @@ public class PatientController {
             // wrong password (case-sensitive check)
             patient.setPassword(null);
             model.addAttribute("patient", patient);
-            model.addAttribute("error", "Wrong phone number or password");
+            model.addAttribute("error", "Wrong password");
             return "loginPatient";
         }
 
