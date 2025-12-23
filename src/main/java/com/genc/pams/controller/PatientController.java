@@ -17,6 +17,12 @@ public class PatientController {
     @Autowired
     private PatientService patientService;
 
+    @GetMapping("/")
+    public String start() {
+        return "loginPatient";
+    }
+    
+
     @GetMapping("/register")
     public String showReg(Model model) {
         model.addAttribute("patient",new Patient());
@@ -24,7 +30,7 @@ public class PatientController {
     }
 
     @GetMapping("/log")
-    public String showLog(Model model) {
+    public String showLog() {
         return "loginPatient";
     }
     
